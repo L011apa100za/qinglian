@@ -84,7 +84,7 @@
 			/* 设置弹性容器,flex-grow: 1表示子项可以根据需要拉伸以填满剩余空间。 */
 			flex: 1;
 			margin-left: 10px;
-			max-width: 500px;
+			/* max-width: 500px; */
 			/* 使用width无法实现 */
 		}
 
@@ -214,12 +214,12 @@
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-desktop mr-2"></i>
-					自定义导航
-					<span class="bg-red-500 text-white text-xs px-2 py-1 ml-2 rounded-full">NEW</span>
+					环境湿度
+					<!-- <span class="bg-red-500 text-white text-xs px-2 py-1 ml-2 rounded-full">NEW</span> -->
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-tools mr-2"></i>
-					专项分析
+					氢气消耗速率
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-tablet-alt mr-2"></i>
@@ -227,11 +227,11 @@
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-database mr-2"></i>
-					后勤分析
+					电池温度
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-server mr-2"></i>
-					内存分析
+					加氢状态
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-network-wired mr-2"></i>
@@ -239,11 +239,11 @@
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-lock mr-2"></i>
-					压缩代码分析
+					能量储存效率
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-code mr-2"></i>
-					H5页面分析
+					预计剩余寿命
 				</li>
 				<li class="flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer">
 					<i class="fas fa-chart-bar mr-2"></i>
@@ -289,8 +289,8 @@
 							class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">全部应用版本</button>
 						<button id="btnAllJSSDK" class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">车型</button>
 						<button id="btnAllGatewayTypes"
-							class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">氢气浓度</button>
-						<button id="btnAllRegions" class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">电池区块</button>
+							class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">氢气存储区块</button>
+						<button id="btnAllRegions" class="border border-gray-300 text-gray-500 rounded px-3 py-1 mr-2">电池单元</button>
 						<button id="btnMore" class="border border-gray-300 text-gray-500 rounded px-3 py-1">更多</button>
 					</div>
 					<div class="flex items-center">
@@ -323,8 +323,8 @@
 	<!-- 第二部分 -->
 	<div class="part2">
 		<div class="container mx-auto mt-4 p-4 bg-white shadow-lg rounded-lg">
-			<div class="flex justify-between items-center mb-4">
-				<div class="flex items-center">
+			<div class="flex justify-between items-center mr-4">
+				<div class="flex items-center mr-100">
 					<div class="text-blue-600 font-bold text-xl">Model-H</div>
 					<!-- Other header elements go here -->
 				</div>
@@ -332,11 +332,11 @@
 					<!-- User profile and settings go here -->	
 				</div>
 			</div>
-			<div class="grid grid-cols-2 gap-4 mb-4">
+			<div class="grid grid-cols-2 gap-4 ml-4">
 				<div class="bg-blue-100 p-4 rounded-lg">
 					<div class="flex items-center justify-between">
 						<div class="text-blue-600">
-							<i class="fas fa-bolt"></i>前台电流值
+							<i class="fas fa-bolt "></i>前台电流值
 						</div>
 						<div class="text-sm">单位: mA</div>
 					</div>
@@ -351,7 +351,7 @@
 						</div>
 						<div class="text-sm">单位: °C</div>
 					</div>
-					<div class="text-3xl font-bold text-orange-600 mt-2">31.85°C</div>
+					<div class="text-3xl font-bold text-orange-600 mt-2">71.85°C</div>
 					<div class="text-sm text-orange-600">前一周同期 30°C <span class="text-red-500">↑ 6.2%</span></div>
 				</div>
 			</div>
@@ -362,80 +362,40 @@
 		<div class="my-10">
 			<div class="bg-white shadow rounded-lg p-6">
 				<div class="flex items-center justify-between mb-4">
-					<h2 class="text-xl font-semibold text-gray-700">电池寿命</h2>
+					<h2 class="text-xl font-semibold text-gray-700">电池单元（1）</h2>
 					<div class="text-blue-600 cursor-pointer">刷新</div>
 				</div>
 				<div class="flex mb-4">
 					<button id="tabButton1" class="tab-button active flex-1 py-2 rounded-lg text-center mr-2"
-						onclick="toggleTabs(1)">前台电池耗尽</button>
+						onclick="toggleTabs(1)">氢气产生与消耗参数</button>
 					<button id="tabButton2" class="tab-button flex-1 py-2 rounded-lg text-center"
-						onclick="toggleTabs(2)">电池温度</button>
+						onclick="toggleTabs(2)">电池状态参数</button>
 				</div>
 				<div class="flex items-center justify-between mb-2">
-					<h3 class="text-lg font-medium text-gray-700">设备寿命</h3>
-					<div class="text-sm text-gray-500">TOP5 | 详情</div>
+					<h3 class="text-lg font-medium text-gray-700">详细参数</h3>
+					<div class="text-sm text-gray-500">TOP4 | 详情</div>
 				</div>
 				<div class="space-y-3">
 					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>vivoY67</span>
-						<span>987,229mA</span>
+						<span>氢气产生速率</span>
+						<span>立方米/小时（m³/h）</span>
 					</div>
 					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>PBCM10</span>
-						<span>955,966mA</span>
+						<span>氢气消耗速率</span>
+						<span>立方米/小时（m³/h）</span>
 					</div>
 					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>EVA-AL00</span>
-						<span>777,272mA</span>
+						<span>氢气质量</span>
+						<span>克（g）</span>
 					</div>
 					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>LLD-AL20</span>
-						<span>773,664mA</span>
+						<span>氢气压力</span>
+						<span>兆帕（MPa）</span>
 					</div>
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
+					<!-- <div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
 						<span>OE106</span>
 						<span>729,952mA</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="my-11">
-			<div class="bg-white shadow rounded-lg p-6">
-				<div class="flex items-center justify-between mb-4">
-					<h2 class="text-xl font-semibold text-gray-700">电池寿命</h2>
-					<div class="text-blue-600 cursor-pointer">刷新</div>
-				</div>
-				<div class="flex mb-4">
-					<button id="tabButton1" class="tab-button active flex-1 py-2 rounded-lg text-center mr-2"
-						onclick="toggleTabs(1)">前台电池耗尽</button>
-					<button id="tabButton2" class="tab-button flex-1 py-2 rounded-lg text-center"
-						onclick="toggleTabs(2)">电池温度</button>
-				</div>
-				<div class="flex items-center justify-between mb-2">
-					<h3 class="text-lg font-medium text-gray-700">设备寿命</h3>
-					<div class="text-sm text-gray-500">TOP5 | 详情</div>
-				</div>
-				<div class="space-y-3">
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>vivoY67</span>
-						<span>987,229mA</span>
-					</div>
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>PBCM10</span>
-						<span>955,966mA</span>
-					</div>
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>EVA-AL00</span>
-						<span>777,272mA</span>
-					</div>
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>LLD-AL20</span>
-						<span>773,664mA</span>
-					</div>
-					<div class="bg-blue-100 rounded-lg p-3 flex justify-between items-center">
-						<span>OE106</span>
-						<span>729,952mA</span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
